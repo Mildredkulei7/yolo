@@ -99,3 +99,6 @@ create a cluster
  using "Docker compose up"
 6. Docker networking
 Confirm that both containers plus the mongodb are on the same network
+7. created account on dockerhub
+pushed the images there; https://hub.docker.com/repository/docker/mildredkulei/yolomy-app
+8. 
