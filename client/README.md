@@ -66,3 +66,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Install the following
+node
+npm
+mongoDB
+
+## Steps
+1. create .env file
+2. create Dockerfile in each container
+3. create docker-compose yaml file

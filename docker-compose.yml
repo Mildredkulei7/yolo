@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  client:
+    build: ./client
+    image: yoloweb:1.0
+    container_name: yolo_web
+    ports:
+      - '8000:8000'
+    stdin_open: true
+    networks:
+      - my_network
+    
+
+  backend:
+    build: ./backend
+    image: yoloapi:1.0
+    container_name: yolo_api
+    ports:
+      - '8001:8001'
+    env_file:
+      - './.env'
+    networks:
+      - my_network
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mildredkulei
+      MONGO_INITDB_ROOT_PASSWORD: kossy123$
+    volumes:
+      - database:/data/db
+    networks:
+      - my_network
+
+volumes:
+  database:
+
+networks:
+  my_network:
+    driver: bridge
+    
