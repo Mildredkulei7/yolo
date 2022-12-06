@@ -22,7 +22,7 @@ Make sure that you have the following installed:
 
  ### Go ahead a nd add a product (note that the price field only takes a numeric input)
  
-# Creating the Docker Contenirisation to replicate the E-commerce above
+# Creating the Docker Containarisation to replicate the E-commerce above
 
  ## Install the following
 * node
