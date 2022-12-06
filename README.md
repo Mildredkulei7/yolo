@@ -21,3 +21,40 @@ Make sure that you have the following installed:
  `npm start`
 
  ### Go ahead a nd add a product (note that the price field only takes a numeric input)
+ 
+# Creating the Docker Contenirisation to replicate the E-commerce above
+
+ ## Install the following
+* node
+* npm
+* mongoDB
+
+## npm
+1. Navigate to client folder
+Run:
+cd client
+npm install
+npm start
+
+2. Navigate to client folder
+Run:
+cd client
+npm install
+npm start
+
+## mongoDB
+Sighn-up for mongodb online service
+create a cluster
+
+## Steps
+1. create .env file
+2. create Dockerfile in each container; client & backend containers
+3. create docker-compose yaml file
+4. build the docker compose image
+ using "Docker compose build"
+5. Start the Application
+ using "Docker compose up"
+6. Docker networking
+Confirm that both containers plus the mongodb are on the same network
+7. created account on dockerhub
+pushed the images there; https://hub.docker.com/repository/docker/mildredkulei/yolomy-app
