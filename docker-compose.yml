@@ -3,7 +3,7 @@ version: '3.8'
 services:
   client:
     build: ./client
-    image: yoloweb:1.0
+    image: yoloweb
     container_name: yolo_web
     ports:
       - '8000:8000'
@@ -14,7 +14,7 @@ services:
 
   backend:
     build: ./backend
-    image: yoloapi:1.0
+    image: firstimage
     container_name: yolo_api
     ports:
       - '8001:8001'
