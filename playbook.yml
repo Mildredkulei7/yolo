@@ -1,0 +1,35 @@
+---
+
+- name: Prerequisites
+  hosts: all
+  become: true
+  roles:
+    - common
+
+
+- name: setup client service
+  hosts: client
+  become: true
+  tags: apache
+  vars:
+    http_port: 8000
+  roles:
+    - pretasks
+    - client
+
+- name: setup backend service
+  hosts: backend
+  become: true
+  roles:
+    - pretasks
+    - backend
+
+- name: Setup MongoDB
+  hosts: mongodb
+  become: true
+  roles:
+    - pretasks
+    - mongodb
+
+
+
