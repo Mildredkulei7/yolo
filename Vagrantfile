@@ -13,6 +13,11 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "generic/centos7"
+  config.ssh.insert_key = false
+  config.vm.provider :virtualbox do |v|
+    v.memory = 1024
+    v.linked_clone = true
+  end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -67,4 +72,29 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  # Client App server
+  config.vm.define "client" do |app|
+    app.vm.hostname ="lx-app-client.client"
+    app.vm.network :private_network, ip: "192.168.64.2"
+  end
+
+  # Backend App server
+  config.vm.define "backend" do |backend|
+    backend.vm.hostname = "lx-app-backend.backend"
+    backend.vm.network :private_network, ip: "192.168.64.3"
+    backend.vm.network "forwarded_port", guest: 500, host: 500
+  end
+
+  #Mongodb server
+  config.vm.define "mongodb" do |mongodb|
+    mongodb.vm.hostname = "lx-app-mongodb.mongodb"
+    mongodb.vm.network :private_network, ip: "192.168.64.4"
+    mongodb.vm.network "forwarded_port", guest: 27017, host: 27017
+  end
+
+  # Ansible provisioning.
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yaml"
+  end
 end

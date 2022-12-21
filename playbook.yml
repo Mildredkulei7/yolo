@@ -14,21 +14,21 @@
   vars:
     http_port: 8000
   roles:
-    - pretasks
+    - common
     - client
 
 - name: setup backend service
   hosts: backend
   become: true
   roles:
-    - pretasks
+    - common
     - backend
 
 - name: Setup MongoDB
   hosts: mongodb
   become: true
   roles:
-    - pretasks
+    - common
     - mongodb
 
 
